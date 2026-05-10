@@ -1,0 +1,29 @@
+views:
+  - type: table
+    name: Tabelle
+    filters:
+      and:
+        - file.ext == "md"
+    order:
+      - file.name
+      - category
+      - manufacturer
+      - footprint
+      - value
+      - tolerance
+      - limit
+      - kicad
+      - link
+      - Tmin
+      - Tmax
+      - show_note
+    sort:
+      - property: category
+        direction: ASC
+      - property: file.name
+        direction: ASC
+    columnSize:
+      note.kicad: 194
+      note.link: 443
+      note.Tmin: 161
+      note.Tmax: 102

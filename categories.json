@@ -1,0 +1,110 @@
+[
+    {
+        "name": "connector",
+        "rank": 0
+    },
+    {
+        "name": "RF",
+        "rank": 0
+    },
+    {
+        "name": "USB",
+        "rank": 1
+    },
+    {
+        "name": "digital",
+        "rank": 0
+    },
+    {
+        "name": "gate",
+        "rank": 1
+    },
+    {
+        "name": "diode",
+        "rank": 0
+    },
+    {
+        "name": "LED",
+        "rank": 1
+    },
+    {
+        "name": "Schottky",
+        "rank": 1
+    },
+    {
+        "name": "Zener",
+        "rank": 1
+    },
+    {
+        "name": "microcontroller",
+        "rank": 0
+    },
+    {
+        "name": "MSP430",
+        "rank": 1
+    },
+    {
+        "name": "MOSFET",
+        "rank": 0
+    },
+    {
+        "name": "nmos",
+        "rank": 1
+    },
+    {
+        "name": "pmos",
+        "rank": 1
+    },
+    {
+        "name": "passive",
+        "rank": 0
+    },
+    {
+        "name": "resistor",
+        "rank": 1
+    },
+    {
+        "name": "capacitor",
+        "rank": 1
+    },
+    {
+        "name": "inductor",
+        "rank": 1
+    },
+    {
+        "name": "crystal",
+        "rank": 1
+    },
+    {
+        "name": "antenna",
+        "rank": 1
+    },
+    {
+        "name": "switch",
+        "rank": 0
+    },
+    {
+        "name": "transceiver",
+        "rank": 1
+    },
+    {
+        "name": "power",
+        "rank": 0
+    },
+    {
+        "name": "LDO",
+        "rank": 1
+    },
+    {
+        "name": "sensor",
+        "rank": 0
+    },
+    {
+        "name": "temperature",
+        "rank": 1
+    },
+    {
+        "name": "slide",
+        "rank": 1
+    }
+]
