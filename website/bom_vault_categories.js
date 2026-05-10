@@ -69,6 +69,10 @@ function update_categories(alternative_categories) {
             btn.hide();
         }
 
+        if (filter_categories.length == 0 && cat.hide) {
+            btn.show();
+        }
+
         if (cat.rank > cat_rank + 1) {
             btn.hide();
         }

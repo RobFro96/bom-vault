@@ -6,6 +6,8 @@ let columns_sorter = ["name", "categories", "manufacturer", "footprint", "value"
 $(document).ready(function () {
     categories_init();
 
+    $("#footer").html(EXPORTED.footer);
+
     $("#tempFilter").on("input", function () {
         on_temperature_changed();
     });
@@ -133,7 +135,7 @@ function get_final_column(e) {
                 title="Open Mouser">
            <img src="icons/mouser.png" class="icon-png" alt="Mouser">
            </a>`;
-    } else {
+    } else if (e.link) {
         final_column += `
             <a href="${e.link}" 
                 target="_blank" 

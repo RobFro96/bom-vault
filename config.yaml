@@ -31,9 +31,6 @@ categories:
     rank: 1
   inductor:
     rank: 1
-  instruments:
-    hide: true
-    rank: 0
   microcontroller:
     rank: 0
   nmos:
@@ -56,6 +53,10 @@ categories:
     rank: 1
   transceiver:
     rank: 1
+  instrument:
+    rank: 0
+    hide: true
+
 footer: "Robert Fromm, [GitHub](https://github.com/RobFro96), version: #TODAY"
 footer_timestamp: "%d.%m.%Y"
 md_extensions:

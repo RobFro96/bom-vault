@@ -131,6 +131,9 @@ class BomVaultExporter:
         return icon
 
     def __extract_mouser_partnum(self, link: str) -> str:
+        if not link:
+            return ""
+
         if not "www.mouser." in link:
             return ""
 
