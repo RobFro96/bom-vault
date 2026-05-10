@@ -1,0 +1,101 @@
+body {
+    background-color: #f8f9fa;
+}
+
+/* Category Styles */
+.category-section {
+    margin-bottom: 2rem;
+}
+
+.btn-category {
+    min-width: 110px;
+    margin: 5px;
+}
+
+/* Clean Temperature Input (No Arrows) */
+.temp-container {
+    max-width: 140px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.table-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+html {
+    /* Browser default is usually 16px. 
+       14px (87.5%) is a common "compact" dashboard size. */
+    font-size: 14px;
+}
+
+body {
+    /* Ensures the body inherits the root size */
+    font-size: 1rem;
+}
+
+/* Optional: Make the table even more compact if the global change isn't enough */
+.table {
+    font-size: 0.9rem;
+}
+
+#modalBody {
+    max-height: 70vh;
+    /* Limits height to 70% of screen */
+    overflow-y: auto;
+    /* Adds scrollbar if content is long */
+    font-size: 0.95rem;
+}
+
+/* Ensure images inside notes don't overflow the modal */
+#modalBody img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.icon-link {
+    font-size: 1.2rem;
+    transition: transform 0.2s ease-in-out, color 0.2s;
+    display: inline-block;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.icon-link:hover {
+    transform: scale(1.2);
+}
+
+.icon-png {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.stealth-link {
+    /* 1. Reset color and underline */
+    color: inherit !important;
+    text-decoration: none !important;
+
+    /* 2. Keep the font exactly the same */
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+
+    /* 3. The "Magic": Change only the cursor */
+    cursor: pointer;
+
+    /* 4. Optional: prevent any hover effects if you want it truly invisible */
+    outline: none;
+}
+
+.stealth-link:hover {
+    /* Ensures no color shift or underline occurs on hover */
+    color: inherit !important;
+    text-decoration: none !important;
+}

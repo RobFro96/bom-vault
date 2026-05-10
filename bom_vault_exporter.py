@@ -4,56 +4,52 @@ import yaml
 import markdown
 import json
 import os
+import datetime
+
+from bom_vault_config import BomVaultConfig
 
 GLOB = "components/*.md"
 ENCODING = "utf-8"
-MD_EXTENSIONS = ["extra", "codehilite", "toc", "tables", "fenced_code"]
-CATEGORIES_FILE = "categories.json"
+CONFIG_FILE = "config.yaml"
 DATASHEET_FOLDER = "website/datasheets"
 OUTPUT_FILE = "website/output.js"
 VAR_NAME = "EXPORTED"
 
 
-class JsonExporter:
+class BomVaultExporter:
     def __init__(self, files: list) -> None:
-        self.__load_categories()
+        self.config = BomVaultConfig.from_yaml(CONFIG_FILE)
+        if self.config is None:
+            logging.error("Cannot load config file %s", CONFIG_FILE)
+            return
 
-        self.elements = list()
+        elements = list()
         for file in files:
             with open(file, "r", encoding=ENCODING) as f:
                 content = f.read()
-                analysis_result = self.analyze_markdown(file, content)
+                analysis_result = self.__analyze_markdown(file, content)
 
                 if analysis_result is not None:
-                    self.elements.append(analysis_result)
+                    elements.append(analysis_result)
 
-        self.elements.sort(key=lambda x: x["name"].lower())
+        elements.sort(key=lambda x: x["name"].lower())
+        footer = self.__prepare_footer()
 
-    def save(self, output_file) -> None:
+        self.output = dict(
+            categories=self.config.categories,
+            elements=elements,
+            footer=footer
+        )
+
+    def save_json(self, output_file) -> None:
         with open(output_file, "w", encoding=ENCODING) as f:
-            output = dict(categories=self.categories, elements=self.elements)
-            json.dump(output, f, indent=4)
+            json.dump(self.output, f, indent=4)
 
     def save_js(self, output_file, var_name) -> None:
         with open(output_file, "w", encoding=ENCODING) as f:
-            output = dict(categories=self.categories, elements=self.elements)
-            f.write(f"const {var_name} = {json.dumps(output, indent=4)};")
+            f.write(f"const {var_name} = {json.dumps(self.output, indent=4)};")
 
-    def __load_categories(self) -> None:
-        try:
-            with open(CATEGORIES_FILE, "r", encoding=ENCODING) as f:
-                self.categories = json.load(f)
-        except FileNotFoundError:
-            logging.exception("Categories file %s not found", CATEGORIES_FILE)
-            self.categories = list()
-        except json.JSONDecodeError:
-            logging.exception("Categories file %s is not valid JSON", CATEGORIES_FILE)
-            self.categories = list()
-
-        # sort categories by rank and name
-        self.categories.sort(key=lambda x: (x["rank"], x["name"].lower()))
-
-    def analyze_markdown(self, filename: str, content: str) -> dict:
+    def __analyze_markdown(self, filename: str, content: str) -> dict:
         splitted = content.split("---\n", 2)
         if len(splitted) < 2:
             logging.error("Cannot split markdown and YAML properties in file %s", filename)
@@ -69,7 +65,8 @@ class JsonExporter:
         if len(splitted) == 3:
             markdown_content = splitted[2]
             try:
-                html_content = markdown.markdown(markdown_content, extensions=MD_EXTENSIONS)
+                html_content = markdown.markdown(
+                    markdown_content, extensions=self.config.md_extensions)
                 yaml_dict["notes"] = html_content
             except Exception:
                 logging.exception("Error converting markdown to HTML in file %s", filename)
@@ -122,15 +119,13 @@ class JsonExporter:
         icon = "none"
         last_icon_rank = -1
         for item_category in item_categories:
-            found = False
-            for category in self.categories:
-                if category["name"].lower() == item_category.lower():
-                    found = True
-                    if category["rank"] > last_icon_rank:
-                        icon = category["name"]
-                        last_icon_rank = category["rank"]
-
-            if not found:
+            category_name = item_category.lower()
+            category = self.config._categories_dclass.get(category_name, None)
+            if category is not None:
+                if category.rank > last_icon_rank:
+                    icon = category_name
+                    last_icon_rank = category.rank
+            else:
                 logging.warning("Category %s not found, element: %s", item_category, name)
 
         return icon
@@ -158,6 +153,12 @@ class JsonExporter:
         if not os.path.exists(f"{DATASHEET_FOLDER}/{name}.pdf"):
             logging.warning("Datasheet %s not found", name)
 
+    def __prepare_footer(self):
+        timestamp = datetime.datetime.now().strftime(self.config.footer_timestamp)
+        footer_md = self.config.footer.replace("#TODAY", timestamp)
+
+        return markdown.markdown(footer_md, extensions=self.config.md_extensions)
+
 
 if __name__ == "__main__":
     logging.basicConfig(format="%(asctime)s,%(msecs)03d %(levelname)-5s "
@@ -166,5 +167,5 @@ if __name__ == "__main__":
                         level=logging.INFO)
 
     files = glob.glob(GLOB)
-    exporter = JsonExporter(files)
+    exporter = BomVaultExporter(files)
     exporter.save_js(OUTPUT_FILE, VAR_NAME)

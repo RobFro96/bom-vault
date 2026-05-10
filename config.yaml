@@ -1,0 +1,66 @@
+categories:
+  LDO:
+    rank: 1
+  LED:
+    rank: 1
+  MOSFET:
+    rank: 0
+  MSP430:
+    rank: 1
+  RF:
+    rank: 0
+  Schottky:
+    rank: 1
+  USB:
+    rank: 1
+  Zener:
+    rank: 1
+  antenna:
+    rank: 1
+  capacitor:
+    rank: 1
+  connector:
+    rank: 0
+  crystal:
+    rank: 1
+  digital:
+    rank: 0
+  diode:
+    rank: 0
+  gate:
+    rank: 1
+  inductor:
+    rank: 1
+  instruments:
+    hide: true
+    rank: 0
+  microcontroller:
+    rank: 0
+  nmos:
+    rank: 1
+  passive:
+    rank: 0
+  pmos:
+    rank: 1
+  power:
+    rank: 0
+  resistor:
+    rank: 1
+  sensor:
+    rank: 0
+  slide:
+    rank: 1
+  switch:
+    rank: 0
+  temperature:
+    rank: 1
+  transceiver:
+    rank: 1
+footer: "Robert Fromm, [GitHub](https://github.com/RobFro96), version: #TODAY"
+footer_timestamp: "%d.%m.%Y"
+md_extensions:
+  - extra
+  - codehilite
+  - toc
+  - tables
+  - fenced_code
