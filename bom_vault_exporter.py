@@ -3,6 +3,7 @@ import glob
 import json
 import logging
 import os
+import shutil
 
 import markdown
 import yaml
@@ -16,6 +17,7 @@ CONFIG_FILE = "config.yaml"
 DATASHEET_FOLDER = "website/datasheets"
 OUTPUT_FILE = "website/output.js"
 VAR_NAME = "EXPORTED"
+WEBSITE_IMG_FOLDER = "website/img"
 
 
 class BomVaultExporter:
@@ -50,6 +52,10 @@ class BomVaultExporter:
     def save_js(self, output_file, var_name) -> None:
         with open(output_file, "w", encoding=ENCODING) as f:
             f.write(f"const {var_name} = {json.dumps(self.output, indent=4)};")
+
+    def copy_imgs(self) -> None:
+        for file in glob.glob("components/img/*.*"):
+            shutil.copy(file, WEBSITE_IMG_FOLDER)
 
     def sync_to_website(self) -> None:
         BomVaultSFTP(self.config).start_sync()
@@ -182,4 +188,5 @@ if __name__ == "__main__":
     files = glob.glob(GLOB)
     exporter = BomVaultExporter(files)
     exporter.save_js(OUTPUT_FILE, VAR_NAME)
+    exporter.copy_imgs()
     exporter.sync_to_website()

@@ -110,8 +110,8 @@ function get_footprint(e) {
             <a href="javascript:void(0)" 
                 class="open-modal icon-link mx-1" 
                 title="KiCad"
-                data-content="${e.kicad}"
-                data-title="${e.name}">
+                data-type="kicad"
+                data-element="${e.name}">
             <img src="icons/kicad.png" class="icon-png" alt="KiCad">
             </a>
         `;
@@ -153,8 +153,8 @@ function get_final_column(e) {
                 <a href="javascript:void(0)" 
                     class="open-modal icon-link text-warning mx-1" 
                     title="View Notes"
-                    data-content="${e.notes}"
-                    data-title="${e.name}">
+                    data-type="notes"
+                    data-element="${e.name}">
                 <i class="bi bi-sticky-fill"></i>
                 </a>`;
     }
@@ -210,10 +210,33 @@ function open_modal(e) {
     let content = e.data('content');
     let title = e.data('title');
 
+    // get element
+    let element_name = e.data('element');
+    let element = EXPORTED.elements.find(e => e.name == element_name);
+    if (!element) {
+        return;
+    }
+
+    // analyze type
+    let type = e.data('type');
+    if (type == "kicad") {
+        content = element.kicad;
+        title = "KiCad Model of " + element.name;
+    } else if (type == "notes") {
+        content = element.notes;
+        title = "Notes of " + element.name;
+    }
+
+
     let urlRegex = /(?<!href="|">)(https?:\/\/[^\s<]+)/g;
     content = content.replace(urlRegex, function (url) {
         return `<a href="${url}" target="_blank" class="text-primary text-decoration-underline">${url}</a>`;
     });
+
+    // change h2, h3, h4 to h5
+    content = content.replace(/<h2/g, '<h5');
+    content = content.replace(/<h3/g, '<h5');
+    content = content.replace(/<h4/g, '<h5');
 
     // 2. Inject the HTML into the modals
     $("#modalTitle").text(title);

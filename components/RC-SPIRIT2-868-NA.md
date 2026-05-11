@@ -13,3 +13,6 @@ Tmin: -30
 Tmax: 75
 show_note: true
 ---
+## pinout
+
+![](img/RC-SPIRIT2-868-NA_pinout.png)
