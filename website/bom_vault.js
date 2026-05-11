@@ -17,7 +17,7 @@ $(document).ready(function () {
     });
 
     $("#datatable th").on("click", function () {
-        on_table_header_clicked();
+        on_table_header_clicked($(this));
     });
 
     $(document).on("click", ".open-modal", function () {
@@ -65,7 +65,7 @@ function update_table() {
 function is_filtered(e) {
     for (let cat_name of e.category) {
         let cat = EXPORTED.categories[cat_name];
-        if (cat.hide && !filter_categories.includes(cat_name)) {
+        if (cat.hide && !filter_categories.includes(cat_name) && search_input == "") {
             return false;
         }
     }
@@ -179,9 +179,9 @@ function on_search_input() {
     update_table();
 }
 
-function on_table_header_clicked() {
+function on_table_header_clicked(e) {
     // Get the column index
-    let columnIndex = $(this).index();
+    let columnIndex = e.index();
     let columnName = columns_sorter[columnIndex];
 
     // Sort the table by the clicked column

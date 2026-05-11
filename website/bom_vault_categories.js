@@ -58,8 +58,6 @@ function update_categories(alternative_categories) {
         cat_rank = 0;
     }
 
-    console.log("show only categories with rank <= " + (cat_rank + 1));
-
     for (let cat_name in EXPORTED.categories) {
         let cat = EXPORTED.categories[cat_name];
         let btn = $("#cat-" + cat_name);
@@ -70,7 +68,7 @@ function update_categories(alternative_categories) {
             btn.hide();
         }
 
-        if (filter_categories.length == 0 && cat.hide) {
+        if (filter_categories.length == 0 && cat.hide && search_input == "") {
             btn.show();
         }
 
