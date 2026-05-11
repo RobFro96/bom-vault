@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.29">
-<info created="D:20260508092811" modified="D:20260511060644"/>
+<info created="D:20260508092811" modified="D:20260511070316"/>
+<preamble>\usepackage[default]{sourcesanspro}
+\usepackage[T1]{fontenc}</preamble>
 <ipestyle name="robert_basics">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -312,13 +314,6 @@ h
 <layer name="alpha"/>
 <layer name="beta"/>
 <view layers="alpha" active="alpha"/>
-<path layer="alpha" stroke="black" pen="ultrafat">
-146 796 m
-146 788 l
-158 788 l
-158 796 l
-h
-</path>
 <path layer="beta" stroke="0" stroke-opacity="10%">
 136 808 m
 136 776 l
@@ -329,12 +324,29 @@ h
 <text layer="alpha" matrix="1 0 0 1 4 -4" transformations="translations" pos="136 808" stroke="black" type="label" width="0" height="0" depth="0" valign="baseline"></text>
 <text matrix="1 0 0 1 28 -28" transformations="translations" pos="136 808" stroke="black" type="label" width="0" height="0" depth="0" halign="right" valign="baseline"></text>
 <path stroke="black" pen="ultrafat">
-140 792 m
-146 792 l
+152 800 m
+144 800 l
+144 784 l
+152 784 l
+</path>
+<path stroke="black" pen="ultrafat">
+152 800 m
+160 800
+160 784
+152 784 c
 </path>
 <path stroke="black" pen="ultrafat">
 158 792 m
 164 792 l
 </path>
+<path stroke="black" pen="ultrafat">
+144 798 m
+140 798 l
+</path>
+<path stroke="black" pen="ultrafat">
+144 786 m
+140 786 l
+</path>
+<text matrix="1 0 0 1 -1 -3" transformations="translations" pos="152 790" stroke="black" type="label" width="9.569" height="9.717" depth="0.16" halign="center" valign="baseline" size="Large">\bfseries \&amp;</text>
 </page>
 </ipe>

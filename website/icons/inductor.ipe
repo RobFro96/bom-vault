@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.29">
-<info created="D:20260508092811" modified="D:20260508095047"/>
+<info created="D:20260508092811" modified="D:20260511070421"/>
 <ipestyle name="robert_basics">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -310,15 +310,31 @@ h
 </ipestyle>
 <page>
 <layer name="alpha"/>
+<layer name="beta"/>
 <view layers="alpha" active="alpha"/>
-<use layer="alpha" name="mark/disk(sx)" pos="124 784" size="small" stroke="black"/>
-<path matrix="1 0 0 1 0 -1" stroke="black">
-122 788 m
-4.47214 0 0 -4.47214 124 784 126 788 a
+<path layer="alpha" stroke="black" fill="black" pen="ultrafat">
+146 796 m
+146 788 l
+158 788 l
+158 796 l
+h
 </path>
-<path matrix="1 0 0 1 0 -1" stroke="black">
-120 790 m
-7.2111 0 0 -7.2111 124 784 128 790 a
+<path layer="beta" stroke="0" stroke-opacity="10%">
+136 808 m
+136 776 l
+168 776 l
+168 808 l
+h
+</path>
+<text layer="alpha" matrix="1 0 0 1 4 -4" transformations="translations" pos="136 808" stroke="black" type="label" width="0" height="0" depth="0" valign="baseline"></text>
+<text matrix="1 0 0 1 28 -28" transformations="translations" pos="136 808" stroke="black" type="label" width="0" height="0" depth="0" halign="right" valign="baseline"></text>
+<path stroke="black" pen="ultrafat">
+140 792 m
+146 792 l
+</path>
+<path stroke="black" pen="ultrafat">
+158 792 m
+164 792 l
 </path>
 </page>
 </ipe>

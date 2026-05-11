@@ -14,6 +14,7 @@ function categories_init() {
 
         $("#categories").append(`
             <button id="cat-${cat_name}" class="btn btn-secondary mb-2 btn-category">
+                <img src="icons/${cat_name}.png" class="icon-png">
                 ${cat_name}
             </button>
         `);

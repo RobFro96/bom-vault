@@ -57,7 +57,7 @@ categories:
     rank: 0
     hide: true
 
-footer: "Robert Fromm, [GitHub](https://github.com/RobFro96), version: #TODAY"
+footer: "Your Name, [GitHub](https://github.com/yourname), version: #TODAY"
 footer_timestamp: "%d.%m.%Y"
 md_extensions:
   - extra

@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.29">
-<info created="D:20260508092811" modified="D:20260511060644"/>
+<info created="D:20260508092811" modified="D:20260511065218"/>
+<preamble>\usepackage[default]{sourcesanspro}
+\usepackage[T1]{fontenc}</preamble>
 <ipestyle name="robert_basics">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -313,10 +315,10 @@ h
 <layer name="beta"/>
 <view layers="alpha" active="alpha"/>
 <path layer="alpha" stroke="black" pen="ultrafat">
-146 796 m
-146 788 l
-158 788 l
-158 796 l
+140 800 m
+140 784 l
+164 784 l
+164 800 l
 h
 </path>
 <path layer="beta" stroke="0" stroke-opacity="10%">
@@ -328,13 +330,62 @@ h
 </path>
 <text layer="alpha" matrix="1 0 0 1 4 -4" transformations="translations" pos="136 808" stroke="black" type="label" width="0" height="0" depth="0" valign="baseline"></text>
 <text matrix="1 0 0 1 28 -28" transformations="translations" pos="136 808" stroke="black" type="label" width="0" height="0" depth="0" halign="right" valign="baseline"></text>
-<path stroke="black" pen="ultrafat">
-140 792 m
-146 792 l
+<text matrix="1 0 0 1 0 -2" transformations="translations" pos="152 790" stroke="black" type="label" width="22.882" height="8.101" depth="0.13" halign="center" valign="baseline" size="large">\bfseries MSP</text>
+<path stroke="black" fill="htwkgray100">
+141.655 800 m
+141.655 804 l
+144 804 l
+144 800 l
+h
 </path>
-<path stroke="black" pen="ultrafat">
-158 792 m
-164 792 l
+<path matrix="1 0 0 1 6 0" stroke="black" fill="htwkgray100">
+141.655 800 m
+141.655 804 l
+144 804 l
+144 800 l
+h
+</path>
+<path matrix="1 0 0 1 12 0" stroke="black" fill="htwkgray100">
+141.655 800 m
+141.655 804 l
+144 804 l
+144 800 l
+h
+</path>
+<path matrix="1 0 0 1 18 0" stroke="black" fill="htwkgray100">
+141.655 800 m
+141.655 804 l
+144 804 l
+144 800 l
+h
+</path>
+<path matrix="1 0 0 1 0.345 -20.094" stroke="black" fill="htwkgray100">
+141.655 800 m
+141.655 804 l
+144 804 l
+144 800 l
+h
+</path>
+<path matrix="1 0 0 1 6.345 -20.094" stroke="black" fill="htwkgray100">
+141.655 800 m
+141.655 804 l
+144 804 l
+144 800 l
+h
+</path>
+<path matrix="1 0 0 1 12.345 -20.094" stroke="black" fill="htwkgray100">
+141.655 800 m
+141.655 804 l
+144 804 l
+144 800 l
+h
+</path>
+<path matrix="1 0 0 1 18.345 -20.094" stroke="black" fill="htwkgray100">
+141.655 800 m
+141.655 804 l
+144 804 l
+144 800 l
+h
 </path>
 </page>
 </ipe>

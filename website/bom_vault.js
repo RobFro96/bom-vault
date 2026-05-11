@@ -96,6 +96,7 @@ function get_first_column(e) {
         <a href="datasheets/${e.name}.pdf" 
             target="_blank" 
             class="stealth-link">
+            <img src="icons/${e.icon}.png" class="icon-png">
             ${e.name}
         </a>
     `;

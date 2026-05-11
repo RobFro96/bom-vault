@@ -1,10 +1,11 @@
-import glob
-import logging
-import yaml
-import markdown
-import json
-import os
 import datetime
+import glob
+import json
+import logging
+import os
+
+import markdown
+import yaml
 
 from bom_vault_config import BomVaultConfig
 
@@ -150,7 +151,12 @@ class BomVaultExporter:
         if tmin is None or tmax is None:
             return ""
 
-        return f"{tmin}...{tmax}°C"
+        if not isinstance(tmin, str):
+            tmin = str(tmin)
+
+        tmin.replace("-", "&ndash;")
+
+        return f"{tmin}&mldr;{tmax}°C"
 
     def __check_datasheet(self, name: str):
         if not os.path.exists(f"{DATASHEET_FOLDER}/{name}.pdf"):

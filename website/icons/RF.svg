@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 10 10">
-<path fill-rule="evenodd" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 5.800781 8 C 5.800781 6.933594 4.199219 6.933594 4.199219 8 C 4.199219 9.066406 5.800781 9.066406 5.800781 8 Z M 5.800781 8 "/>
-<path fill="none" stroke-width="0.7" stroke-linecap="butt" stroke-linejoin="round" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 122 787 C 123.257813 787.628906 124.742188 787.628906 126 787 " transform="matrix(1, 0, 0, -1, -119, 792)"/>
-<path fill="none" stroke-width="0.7" stroke-linecap="butt" stroke-linejoin="round" stroke="rgb(0%, 0%, 0%)" stroke-opacity="1" stroke-miterlimit="10" d="M 120 789 C 122.421875 790.613281 125.578125 790.613281 128 789 " transform="matrix(1, 0, 0, -1, -119, 792)"/>
-</svg>
