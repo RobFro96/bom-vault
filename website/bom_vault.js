@@ -4,6 +4,7 @@ let search_input = "";
 let columns_sorter = ["name", "categories", "manufacturer", "footprint", "value", "tolerance", "limit", "temp_format", "link"];
 
 $(document).ready(function () {
+    history.replaceState({ filters: [] }, "");
     categories_init();
 
     $("#footer").html(EXPORTED.footer);

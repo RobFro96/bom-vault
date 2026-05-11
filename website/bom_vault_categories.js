@@ -2,6 +2,8 @@ let filter_categories = [];
 let number_of_main_categories = 0;
 
 function categories_init() {
+    window.onpopstate = on_history_state_changed;
+
     $("#categories").empty();
     for (let cat_name in EXPORTED.categories) {
         let cat = EXPORTED.categories[cat_name];
@@ -40,6 +42,9 @@ function on_category_pressed(cat_name) {
     } else {
         filter_categories.push(cat_name);
     }
+
+    // create history point
+    history.pushState({ filters: [...filter_categories] }, "");
 
     update_table();
 }
@@ -84,3 +89,15 @@ function update_categories(alternative_categories) {
         }
     }
 }
+
+function on_history_state_changed(event) {
+    if (event.state && event.state.filters) {
+        // Restore the categories from the history state
+        filter_categories = event.state.filters;
+    } else {
+        // If there's no state (e.g., back to the very start), clear filters
+        filter_categories = [];
+    }
+
+    update_table();
+};
