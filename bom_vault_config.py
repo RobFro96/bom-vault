@@ -15,6 +15,11 @@ class BomVaultConfig:
     md_extensions: list[str]
     footer: str
     footer_timestamp: str
+    sftp_hostname: str = None
+    sftp_port: int = 22
+    sftp_user: str = None
+    sftp_password: str = None
+    sftp_path: str = None
     _categories_dclass: dict[str, Category] = None
 
     def __post_init__(self):

@@ -8,6 +8,7 @@ import markdown
 import yaml
 
 from bom_vault_config import BomVaultConfig
+from bom_vault_sftp import BomVaultSFTP
 
 GLOB = "components/*.md"
 ENCODING = "utf-8"
@@ -49,6 +50,9 @@ class BomVaultExporter:
     def save_js(self, output_file, var_name) -> None:
         with open(output_file, "w", encoding=ENCODING) as f:
             f.write(f"const {var_name} = {json.dumps(self.output, indent=4)};")
+
+    def sync_to_website(self) -> None:
+        BomVaultSFTP(self.config).start_sync()
 
     def __analyze_markdown(self, filename: str, content: str) -> dict:
         splitted = content.split("---\n", 2)
@@ -178,3 +182,4 @@ if __name__ == "__main__":
     files = glob.glob(GLOB)
     exporter = BomVaultExporter(files)
     exporter.save_js(OUTPUT_FILE, VAR_NAME)
+    exporter.sync_to_website()

@@ -1,5 +1,6 @@
 .obsidian/
 website/output.js
+config.yaml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

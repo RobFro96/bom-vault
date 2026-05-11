@@ -65,3 +65,8 @@ md_extensions:
   - toc
   - tables
   - fenced_code
+sftp_hostname: test.com
+sftp_port: 22
+sftp_user: user
+sftp_password: 1234
+sftp_path: "/var/www/"

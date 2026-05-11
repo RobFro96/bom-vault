@@ -1,2 +1,4 @@
 pyyaml
 markdown
+pysftp
+paramiko<4.0.0
