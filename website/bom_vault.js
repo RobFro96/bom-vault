@@ -66,7 +66,9 @@ function update_table() {
 function is_filtered(e) {
     for (let cat_name of e.category) {
         let cat = EXPORTED.categories[cat_name];
-        if (cat.hide && !filter_categories.includes(cat_name) && search_input == "") {
+        if (!cat) {
+            console.error(`Category ${cat_name} not found`);
+        } else if (cat.hide && !filter_categories.includes(cat_name) && search_input == "") {
             return false;
         }
     }

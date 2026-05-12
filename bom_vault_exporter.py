@@ -130,11 +130,10 @@ class BomVaultExporter:
         icon = "none"
         last_icon_rank = -1
         for item_category in item_categories:
-            category_name = item_category.lower()
-            category = self.config._categories_dclass.get(category_name, None)
+            category = self.config._categories_dclass.get(item_category, None)
             if category is not None:
                 if category.rank > last_icon_rank:
-                    icon = category_name
+                    icon = item_category
                     last_icon_rank = category.rank
             else:
                 logging.warning("Category %s not found, element: %s", item_category, name)
@@ -189,4 +188,7 @@ if __name__ == "__main__":
     exporter = BomVaultExporter(files)
     exporter.save_js(OUTPUT_FILE, VAR_NAME)
     exporter.copy_imgs()
-    exporter.sync_to_website()
+
+    ans = input("Do you want to sync to website? (Y/n) ").lower().strip()
+    if not ans or ans[0] == "y":
+        exporter.sync_to_website()

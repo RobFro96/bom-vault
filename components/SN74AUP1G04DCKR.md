@@ -3,7 +3,7 @@ category:
   - digital
   - gate
 manufacturer: TI
-footprint: SC70-5
+footprint: SC-70-5
 value: 1x OR
 tolerance:
 limit: V_CC=0.8–3.6 V

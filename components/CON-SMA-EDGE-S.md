@@ -10,6 +10,6 @@ limit: f_max=6 GHz
 kicad:
 link: https://www.mouser.de/ProductDetail/223-CON-SMA-EDGE-S
 Tmin: -55
-Tmax: 155
+Tmax: 150
 show_note: false
 ---

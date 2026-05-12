@@ -4,7 +4,7 @@ categories:
   LED:
     rank: 1
   MOSFET:
-    rank: 0
+    rank: 1
   MSP430:
     rank: 1
   RF:
@@ -33,12 +33,8 @@ categories:
     rank: 1
   microcontroller:
     rank: 0
-  nmos:
-    rank: 1
   passive:
     rank: 0
-  pmos:
-    rank: 1
   power:
     rank: 0
   resistor:
@@ -56,6 +52,38 @@ categories:
   instrument:
     rank: 0
     hide: true
+  battery:
+    rank: 1
+  mechanical:
+    rank: 0
+  pushbutton:
+    rank: 1
+  acceleration:
+    rank: 1
+  BJT:
+    rank: 1
+  transistor:
+    rank: 0
+  filter:
+    rank: 1
+  amplifier:
+    rank: 1
+  adc:
+    rank: 1
+  analog:
+    rank: 0
+  comparator:
+    rank: 1
+  opamp:
+    rank: 1
+  memory:
+    rank: 1
+  STM32:
+    rank: 1
+  balun:
+    rank: 1
+  RTC:
+    rank: 1
 
 footer: "Your Name, [GitHub](https://github.com/yourname), version: #TODAY"
 footer_timestamp: "%d.%m.%Y"

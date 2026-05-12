@@ -29,6 +29,7 @@ class BomVaultSFTP:
         with pysftp.Connection(self.config.sftp_hostname, port=self.config.sftp_port,
                                username=self.config.sftp_user, password=password, cnopts=cnopts) as sftp:
             self.sync_upload_folder(sftp, WEBSITE_FOLDER, self.config.sftp_path)
+        logging.info("SFTP sync complete")
 
     def sync_upload_folder(self, sftp: pysftp.Connection, local_dir: str, remote_dir: str):
         if not sftp.exists(remote_dir):
@@ -45,8 +46,6 @@ class BomVaultSFTP:
                 if not sftp.exists(item) or os.path.getsize(local_item) != sftp.stat(item).st_size:
                     logging.info(f"Uploading: {item}")
                     sftp.put(local_item, item, preserve_mtime=True)
-                else:
-                    logging.info(f"Skipping (already up to date): {item}")
 
             elif os.path.isdir(local_item):
                 # Recursive call for subdirectories

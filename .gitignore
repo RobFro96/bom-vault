@@ -3,6 +3,8 @@ website/output.js
 config.yaml
 website/img/**
 
+.vscode/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

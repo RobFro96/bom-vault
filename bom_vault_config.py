@@ -29,7 +29,7 @@ class BomVaultConfig:
 
         self._categories_dclass = dict()
         for category_name, category in self.categories.items():
-            self._categories_dclass[category_name.lower()] = Category(**category)
+            self._categories_dclass[category_name] = Category(**category)
 
     @classmethod
     def from_yaml(cls, config_file) -> "BomVaultConfig":
