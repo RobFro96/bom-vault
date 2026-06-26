@@ -11,5 +11,5 @@ kicad:
 link: https://www.mouser.de/ProductDetail/356-ESP32WRM32UE32US
 Tmin: -40
 Tmax: 105
-show_note:
+show_note: false
 ---

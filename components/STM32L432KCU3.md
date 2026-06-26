@@ -11,5 +11,5 @@ kicad:
 link: https://www.mouser.de/ProductDetail/511-STM32L432KCU3
 Tmin: -40
 Tmax: 125
-show_note:
+show_note: false
 ---

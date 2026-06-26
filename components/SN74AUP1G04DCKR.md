@@ -4,7 +4,7 @@ category:
   - gate
 manufacturer: TI
 footprint: SC-70-5
-value: 1x OR
+value: 1x Inverter
 tolerance:
 limit: V_CC=0.8–3.6 V
 kicad:
